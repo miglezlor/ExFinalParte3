@@ -1,15 +1,19 @@
 package busqueda;
 
+import javax.swing.JOptionPane;
+
 public class Busqueda {
 
     public static void main(String[] args) {
-        int[] numeros = new int[100];
+        int longArray = Integer.parseInt(JOptionPane.showInputDialog("Introduce la longitud del array"));
+        int valor = Integer.parseInt(JOptionPane.showInputDialog("Introduce el valor del que adivinar el indice"));
+        int[] numeros = new int[longArray];
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = i * 5;
         }
         Busqueda ejemplo = new Busqueda();
-        int indice = ejemplo.busquedaBinaria(numeros, 450, 0, numeros.length - 1);
-        System.out.println("El indice del valor '450' es: " + indice);
+        int indice = ejemplo.busquedaBinaria(numeros, valor, 0, numeros.length - 1);
+        JOptionPane.showMessageDialog(null, "El indice del valor '"+valor+"' es: " + indice);
     }
 
     public int busquedaBinaria(int[] listado, int clave, int posInicial, int posFinal) {
